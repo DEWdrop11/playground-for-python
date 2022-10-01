@@ -10,7 +10,6 @@ from appwrite.services.account import Account
 from appwrite.services.functions import Functions
 from appwrite.input_file import InputFile
 
-# Helper method to print green colored output.
 def p(info):
     print("\033[32;1m"+str(info)+"\033[0m")
 
@@ -21,7 +20,7 @@ client.set_endpoint('http://YOUR_HOST/v1')
 client.set_project('YOUR_PROJECT_ID')
 client.set_key('YOU_API_KEY')
 client.set_self_signed()
-# client.set_jwt('JWT') # Use this to authenticate with JWT instead of API_KEY
+# client.set_jwt('JWT') # Use this to authenticate with JWT instead of the personal customized API_KEY
 
 database_id = None
 collection_id = None
@@ -268,8 +267,6 @@ def delete_function():
     print(response)
 
 def run_all_tasks():
-
-    # Databases
     create_database()
     create_collection()
     list_collections()
@@ -278,22 +275,16 @@ def run_all_tasks():
     delete_doc()
     delete_collection()
     delete_database()
-
-    # Storage
     create_bucket()
     list_buckets()
     upload_file()
     list_files()
     delete_file()
     delete_bucket()
-
-    # Users
     # get_account() # Use this only with JWT
     create_user()
     list_user()
     delete_user()
-
-    # Functions
     create_function()
     list_function()
     delete_function()
